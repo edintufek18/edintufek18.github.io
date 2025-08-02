@@ -1,12 +1,16 @@
 import { Component, signal } from '@angular/core';
+import { Navbar } from '../components/navbar/navbar';
+import { IonicModule } from '@ionic/angular';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [Navbar,IonicModule,RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('mi-spekter-trial-task');
+  constructor() {}
+
+  protected readonly title = signal('edintufek18.github.io');
 }
