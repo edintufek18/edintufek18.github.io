@@ -1,5 +1,28 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+  "builds": [
+    {
+      "src": "hitech/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/studio(.*)",
+      "dest": "/hitech/dist$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
   ]
 }
