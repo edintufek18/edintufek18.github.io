@@ -26,7 +26,6 @@
     "@angular/forms": "^20.1.0",
     "@angular/platform-browser": "^20.1.0",
     "@angular/router": "^20.1.0",
-    "@ionic-native/core": "^5.36.0",
     "@ionic/angular": "^8.7.1",
     "@ionic/angular-toolkit": "^12.2.0",
     "@ionic/core": "^8.7.1",
