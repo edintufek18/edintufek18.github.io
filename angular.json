@@ -16,7 +16,9 @@
             "outputPath": "dist/edintufek18.github.io",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/_redirects",
@@ -118,7 +120,12 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/edintufek18.github.io",
+            "netlifyToken": "nfp_vVXDhhedUJT7Be1APF5jCBowXntDdhsUacb5",
+            "siteId": "6519281a-9969-4970-861c-78e3f58ce8da"
+          }
         }
       }
     }
