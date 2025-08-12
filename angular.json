@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "edintufek18.github.io": {
+    "bookKeeping":{
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -16,9 +16,7 @@
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/_redirects",
@@ -74,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "edintufek18.github.io:build:production"
+              "buildTarget": "bookKeeping:build:production"
             },
             "development": {
-              "buildTarget": "edintufek18.github.io:build:development"
+              "buildTarget": "bookKeeping:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -85,16 +83,13 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "edintufek18.github.io:build"
+            "buildTarget": "bookKeeping:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               {

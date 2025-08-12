@@ -5,12 +5,12 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [Navbar,IonicModule,RouterOutlet],
+  imports: [Navbar, IonicModule, RouterOutlet],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   constructor() {}
 
-  protected readonly title = signal('edintufek18.github.io');
+  protected readonly title = signal('bookKeeping');
 }
