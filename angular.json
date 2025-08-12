@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/edintufek18.github.io",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -74,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "edintufek18.github.io:build:production"
+              "buildTarget": "edintufek18.github.io:build:production"
             },
             "development": {
-              "browserTarget": "edintufek18.github.io:build:development"
+              "buildTarget": "edintufek18.github.io:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -85,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "edintufek18.github.io:build"
+            "buildTarget": "edintufek18.github.io:build"
           }
         },
         "test": {
@@ -120,12 +120,7 @@
           }
         },
         "deploy": {
-          "builder": "@netlify-builder/deploy:deploy",
-          "options": {
-            "outputPath": "dist/edintufek18.github.io",
-            "netlifyToken": "nfp_vVXDhhedUJT7Be1APF5jCBowXntDdhsUacb5",
-            "siteId": "6519281a-9969-4970-861c-78e3f58ce8da"
-          }
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
