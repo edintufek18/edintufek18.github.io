@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{'Add new book' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label position="floating">{{'Title' | translate}}</ion-label>
+        <ion-input type="text" formControlName="title"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="bookForm.get('title')?.invalid && bookForm.get('title')?.touched">
+        <p class="ion-padding-start">Title is required.</p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating">{{'Author' | translate}}</ion-label>
+        <ion-input type="text" formControlName="author"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="bookForm.get('author')?.invalid && bookForm.get('author')?.touched">
+        <p class="ion-padding-start">Author is required.</p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating">{{'Genre' | translate}}</ion-label>
+        <ion-input type="text" formControlName="genre"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="bookForm.get('genre')?.invalid && bookForm.get('genre')?.touched">
+        <p class="ion-padding-start">Genre is required.</p>
+      </ion-text>
+
+    </ion-list>
+
+    <ion-button expand="full" type="submit" [disabled]="bookForm.invalid">
+      Add Book
+    </ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{'Book List' | translate}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-list *ngIf="books.length; else noBooks">
+      <ion-item *ngFor="let book of books">
+        <ion-label class="ion-text-wrap">
+          <h2><strong>{{ book.title }}</strong></h2>
+          <p>{{ book.author }} ({{ book.genre }})</p>
+        </ion-label>
+        <ion-button fill="outline" color="primary" size="small" (click)="editBook(book)">
+          {{'Edit' | translate}}
+        </ion-button>
+        <ion-button fill="outline" color="danger" size="small" (click)="deleteBook(book.id)">
+          {{'Delete' | translate}}
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
+    <ng-template #noBooks>
+      <ion-text color="medium">
+        <p>No books available. Add some above.</p>
+      </ion-text>
+    </ng-template>
+  </ion-card-content>
+</ion-card>

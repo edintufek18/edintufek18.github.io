@@ -1,0 +1,51 @@
+<ion-menu menuId="main" contentId="main-content" type="overlay">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>{{ 'Book Manager' | translate }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+
+      <ion-menu-toggle auto-hide="true">
+        <ion-item routerLink="/library" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
+          {{ 'Library' | translate }}
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle auto-hide="true">
+        <ion-item routerLink="/add-book" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
+          {{ 'Add book' | translate }}
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle auto-hide="true">
+        <ion-item routerLink="/about" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
+          {{ 'About' | translate }}
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-item>
+        <ion-label>{{ 'Language' | translate }}</ion-label>
+        <ion-segment (ionChange)="changeLanguage($event)">
+          <ion-segment-button value="en">
+            <ion-label>ENG</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="si">
+            <ion-label>SLO</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button> <!-- Hamburger Icon -->
+    </ion-buttons>
+    <ion-title>{{ 'Book Manager' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
