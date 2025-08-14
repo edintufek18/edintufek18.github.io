@@ -12,7 +12,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes,withHashLocation()),
+    provideRouter(routes),
     provideTranslateService({
       loader: provideTranslateHttpLoader({
         prefix: './i18n/',
