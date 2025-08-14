@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router ,RouterLink} from '@angular/router';
 import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 
 @Component({
@@ -10,7 +10,8 @@ import { TranslateService, TranslatePipe } from '@ngx-translate/core';
   imports: [
     CommonModule,
     TranslatePipe,
-  ],
+    RouterLink
+],
 })
 export class Navbar {
   isMenuOpen = false;
