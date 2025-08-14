@@ -8,4 +8,5 @@ export const routes: Routes = [
   { path: 'add-book', component: AddBook },
   { path: 'about', component: About },
   { path: '', redirectTo: 'library', pathMatch: 'full' },
+  { path: '**', redirectTo: '' }
 ];
