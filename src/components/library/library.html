@@ -1,28 +1,39 @@
-<ion-card>
-  <ion-card-header>
-    <ion-card-title>{{'Book List' | translate}}</ion-card-title>
-  </ion-card-header>
+<div class="bg-white rounded-lg shadow-md p-6 max-w-xl mx-auto">
+  <div>
+    @if(books.length){
+    <div class="mb-4 border-b pb-2">
+      <h2 class="text-xl font-bold">{{ "Book List" | translate }}</h2>
+    </div>
+    <ul>
+      @for (book of books;track $index){
+      <li class="flex items-center justify-between py-3 border-b">
+        <div class="flex-1">
+          <h3 class="font-semibold text-lg">{{ book.title }}</h3>
+          <p class="text-gray-600">{{ book.author }} ({{ book.genre }})</p>
+        </div>
+        <div class="flex space-x-2">
+          <button
+            class="border border-blue-500 text-blue-500 px-3 py-1 rounded hover:bg-blue-50 text-sm"
+            (click)="editBook(book)"
+          >
+            {{ "Edit" | translate }}
+          </button>
+          <button
+            class="border border-red-500 text-red-500 px-3 py-1 rounded hover:bg-red-50 text-sm"
+            (click)="deleteBook(book.id)"
+          >
+            {{ "Delete" | translate }}
+          </button>
+        </div>
+      </li>
+      }
+    </ul>
 
-  <ion-card-content>
-    <ion-list *ngIf="books.length; else noBooks">
-      <ion-item *ngFor="let book of books">
-        <ion-label class="ion-text-wrap">
-          <h2><strong>{{ book.title }}</strong></h2>
-          <p>{{ book.author }} ({{ book.genre }})</p>
-        </ion-label>
-        <ion-button fill="outline" color="primary" size="small" (click)="editBook(book)">
-          {{'Edit' | translate}}
-        </ion-button>
-        <ion-button fill="outline" color="danger" size="small" (click)="deleteBook(book.id)">
-          {{'Delete' | translate}}
-        </ion-button>
-      </ion-item>
-    </ion-list>
+    } @else{
+    <div class="text-gray-500 text-center py-4">
+      <p>No books available. Add some above.</p>
+    </div>
 
-    <ng-template #noBooks>
-      <ion-text color="medium">
-        <p>No books available. Add some above.</p>
-      </ion-text>
-    </ng-template>
-  </ion-card-content>
-</ion-card>
+    }
+  </div>
+</div>

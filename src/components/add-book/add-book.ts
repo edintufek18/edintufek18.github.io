@@ -3,23 +3,22 @@ import { FormBuilder, FormGroup, Validators,ReactiveFormsModule} from '@angular/
 import { BookStorageService } from '../../services/book-storage';
 import { Book } from '../../models/book';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import {
     TranslateService,
     TranslatePipe
 } from "@ngx-translate/core";
-import { ToastController } from '@ionic/angular/standalone';
+
 
 @Component({
   selector: 'app-add-book',
-  imports: [CommonModule,ReactiveFormsModule,IonicModule,TranslatePipe],
+  imports: [CommonModule,ReactiveFormsModule,TranslatePipe],
   templateUrl: './add-book.html',
   styleUrl: './add-book.css'
 })
 export class AddBook {
     bookForm: FormGroup;
     private translate = inject(TranslateService);
-  constructor(private fb: FormBuilder, private bookService: BookStorageService,private toastController: ToastController) {
+  constructor(private fb: FormBuilder, private bookService: BookStorageService) {
     this.bookForm = this.fb.group({
       title: ['', Validators.required],
       author: ['', Validators.required],
@@ -38,14 +37,14 @@ export class AddBook {
     this.bookForm.reset();
 
     // Show toast
-    const toast = await this.toastController.create({
-      message: 'Book added successfully!',
-      duration: 2000,
-      color: 'success',
-      position: 'bottom'
-    });
+    // const toast = await this.toastController.create({
+    //   message: 'Book added successfully!',
+    //   duration: 2000,
+    //   color: 'success',
+    //   position: 'bottom'
+    // });
 
-    await toast.present();
+    // await toast.present();
   }
 }
 

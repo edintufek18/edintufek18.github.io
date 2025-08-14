@@ -1,41 +1,45 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>{{'Add new book' | translate}}</ion-title>
-  </ion-toolbar>
-</ion-header>
+<header class="bg-blue-600">
+  <div class="max-w-2xl mx-auto px-4 py-4">
+    <h1 class="text-white text-xl font-semibold">{{'Add new book' | translate}}</h1>
+  </div>
+</header>
 
-<ion-content class="ion-padding">
-  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
-    <ion-list>
+<main class="bg-gray-50 min-h-screen py-8">
+  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow">
+    <div class="space-y-6">
 
-      <ion-item>
-        <ion-label position="floating">{{'Title' | translate}}</ion-label>
-        <ion-input type="text" formControlName="title"></ion-input>
-      </ion-item>
-      <ion-text color="danger" *ngIf="bookForm.get('title')?.invalid && bookForm.get('title')?.touched">
-        <p class="ion-padding-start">Title is required.</p>
-      </ion-text>
+      <div class="flex flex-col items-start">
+        <label class="mb-2 text-gray-700 font-medium">{{'Title' | translate}}</label>
+        <input type="text" formControlName="title"
+          class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <div *ngIf="bookForm.get('title')?.invalid && bookForm.get('title')?.touched">
+          <p class="text-red-500 text-sm mt-1">Title is required.</p>
+        </div>
+      </div>
 
-      <ion-item>
-        <ion-label position="floating">{{'Author' | translate}}</ion-label>
-        <ion-input type="text" formControlName="author"></ion-input>
-      </ion-item>
-      <ion-text color="danger" *ngIf="bookForm.get('author')?.invalid && bookForm.get('author')?.touched">
-        <p class="ion-padding-start">Author is required.</p>
-      </ion-text>
+      <div class="flex flex-col items-start">
+        <label class="mb-2 text-gray-700 font-medium">{{'Author' | translate}}</label>
+        <input type="text" formControlName="author"
+          class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <div *ngIf="bookForm.get('author')?.invalid && bookForm.get('author')?.touched">
+          <p class="text-red-500 text-sm mt-1">Author is required.</p>
+        </div>
+      </div>
 
-      <ion-item>
-        <ion-label position="floating">{{'Genre' | translate}}</ion-label>
-        <ion-input type="text" formControlName="genre"></ion-input>
-      </ion-item>
-      <ion-text color="danger" *ngIf="bookForm.get('genre')?.invalid && bookForm.get('genre')?.touched">
-        <p class="ion-padding-start">Genre is required.</p>
-      </ion-text>
+      <div class="flex flex-col items-start">
+        <label class="mb-2 text-gray-700 font-medium">{{'Genre' | translate}}</label>
+        <input type="text" formControlName="genre"
+          class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <div *ngIf="bookForm.get('genre')?.invalid && bookForm.get('genre')?.touched">
+          <p class="text-red-500 text-sm mt-1">Genre is required.</p>
+        </div>
+      </div>
 
-    </ion-list>
+    </div>
 
-    <ion-button expand="full" type="submit" [disabled]="bookForm.invalid">
+    <button type="submit" [disabled]="bookForm.invalid"
+      class="w-full mt-6 bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700 disabled:opacity-50">
       Add Book
-    </ion-button>
+    </button>
   </form>
-</ion-content>
+</main>

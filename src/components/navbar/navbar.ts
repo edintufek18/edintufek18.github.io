@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { IonicModule, MenuController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { Router } from '@angular/router';
 import { TranslateService, TranslatePipe } from '@ngx-translate/core';
 
 @Component({
@@ -9,30 +8,21 @@ import { TranslateService, TranslatePipe } from '@ngx-translate/core';
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css'],
   imports: [
-    IonicModule,
     CommonModule,
-    RouterLink,
-    RouterLinkActive,
     TranslatePipe,
   ],
 })
 export class Navbar {
+  isMenuOpen = false;
+toggleMenu() {
+   this.isMenuOpen = !this.isMenuOpen;
+}
   private translate = inject(TranslateService);
-  constructor(private router: Router,private menu: MenuController) {
+  constructor(private router: Router) {
     this.translate.addLangs(['de', 'en']);
     this.translate.setFallbackLang('en');
     this.translate.use('en');
   }
-
-   async closeMenu() {
-    console.log("is clicked on of the items")
-    const isOpen = await this.menu.isOpen();
-  
-    if (isOpen) {
-      await this.menu.close('main');
-    }
-  }
-
   goToLibrary() {
     this.router.navigate(['/library']);
   }
@@ -48,8 +38,7 @@ export class Navbar {
     this.router.navigate(['/about']);
   }
 
-  changeLanguage(event: any) {
-    const lang = event.detail.value;
+  changeLanguage(lang: string) {
     console.log('Language changed to:', lang);
     this.translate.use(lang);
   }
